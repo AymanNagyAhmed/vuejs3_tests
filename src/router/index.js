@@ -1,16 +1,38 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+
+import Home from "../components/Home.vue";
+import Login from "../components/Login.vue";
+import Register from "../components/Register.vue";
+import ForgotPassword from "../components/ForgotPassword.vue";
+import ResetPassword from "../components/ResetPassword.vue";
+
+const routes = [
+  { path: "/", name: "Home", component: Home },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/forgot-password",
+    name: "ForgotPassword",
+    component: ForgotPassword,
+  },
+  {
+    path: "/password-reset/:token",
+    name: "ResetPassword",
+    component: ResetPassword,
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
+  history: createWebHistory(),
+  routes,
+});
 
-  ]
-})
-
-export default router
+export default router;
